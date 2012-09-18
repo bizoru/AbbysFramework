@@ -1,0 +1,513 @@
+* {
+
+
+    font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
+    
+
+}
+
+
+/*Custom CSS for DatePicker*/
+div.ui-datepicker{
+ font-size:12px;
+}
+
+
+#logout{
+    
+    padding-top: 100px;
+    
+    
+}
+
+.spacer{
+    font-size: 8px;
+    margin-right:10px;
+    
+}
+
+#logout  a{
+    
+    
+    
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    
+    
+}
+
+#logout a:visited{
+    
+    
+    
+    color: white;
+    
+    
+}
+
+
+p{
+    
+    font-size:14px;
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+h2 {
+    
+    margin-top: 10px;    
+    font-size:16px;
+    margin-bottom: 0px;
+    
+}
+
+.title{
+    
+    
+    background: #333333;
+    color: white;
+}
+
+#contenidoadmin{
+    
+    
+    float: right;
+    width: 79%;
+    
+    
+}
+
+#errorsql {
+
+width: 80%;
+height: 100px;
+margin: 0 auto;
+border-radius: 10px;
+padding-top: 100px;
+
+
+}
+
+.error{
+
+ background-color: #ffffff;
+ color: red;
+ width: 90%;
+ height: 30px;
+
+}
+
+.titulo{
+    
+    margin-left: 10px;
+    
+}
+#contenedor {
+    
+    border-bottom: black 1px solid;
+    border-left: black 1px solid;
+    border-right: black 1px solid;
+    width: 1000px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 0 auto;
+    border-color: #b2b2b2;
+
+}
+#contenedor-login {
+    width: 1000px;
+    margin:0 auto;
+    margin-top: 30px;
+
+}
+#cabecera {
+    background:url(images/header.png);
+    height: 80px;
+    width: 100%;
+    background-color: #333333;
+    background-repeat: no-repeat;
+
+}
+#estado {
+    
+    
+    width: 200px;
+    margin-left: 10px;
+    
+}
+
+#modulo{
+    
+    
+    
+    padding-bottom: 30px;
+    
+    width: 99%;
+ 
+    
+}
+
+
+#modulo h1{
+   
+    font-size: 18px;
+    
+    
+}
+
+#tabla {
+    
+    width: auto;
+    padding-top: 40px;
+    font-size: 12px;
+    padding-bottom: 40px;
+    
+}
+
+#tabla table{
+    
+    margin: 0 auto;
+    border-collapse:collapse;
+    width: 80%;
+}
+
+
+#tabla table td {
+    
+height:5px;
+border: 1px solid #E4E4E4;
+padding: 4px;
+
+}
+
+#tabla table th {
+       
+height:5px;
+border: 1px solid #E4E4E4;
+padding: 4px; 
+    
+    
+}
+
+#tabla .row tr:hover{
+    background: #F8F8F8;
+    cursor: pointer;
+}
+
+.row {
+    text-align: center;
+    background: white;
+    font-size:12px;
+
+}
+
+.row:hover{
+    
+    background: #F8F8F8;
+    cursor: pointer;
+
+    
+}
+
+#left {
+    width: 20%;
+    padding-bottom: 30px;
+    border-right: 1px #b2b2b2 solid;
+    float: left;
+}
+
+/*-------------------Menu------------------*/
+#menu{
+    
+    width: auto;
+    margin-left: 10px;
+
+}
+
+#menu .menuheader{ 
+    background: url(images/btn.png) repeat-x center left;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    padding: 4px 0 4px 10px; 
+    cursor: hand;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+#menu ul{ 
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    margin-bottom: 5px; 
+}
+
+#menu ul li{
+    padding-bottom: 2px; 
+    border-bottom: 1px solid #dadada;
+}
+
+#menu ul li:hover{
+    background: #b2b2b2;
+}
+
+
+#menu ul li img{
+        
+    
+margin-left: 2px;
+    margin-right: 10px;
+    margin-top: 5px;
+    position: relative;
+}
+
+
+
+#menu ul li a{
+    color: black;
+    
+    padding: 2px 0;
+    
+    text-decoration: none;
+    
+    
+    font-size: 90%;
+}
+
+#menu ul li a:visited{
+    color: black;
+}
+
+
+#contenido {
+    background:#3C78AD;
+    height: 700px;
+    width: 100%;
+    
+
+}
+#contenido-login {
+    background:#B2B2B2;
+    height: 300px;
+    width: 100%;
+    
+
+}
+#login {
+    background: white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+
+    color:#FFF;
+    width:450px;
+    position: absolute;
+    margin-left: 250px;
+    margin-top: 50px;
+    
+
+}
+#login legend{
+    font-weight:bold;
+    font-size:12px;
+}
+#login ol{
+    list-style:none;
+}
+#login ol li{
+    padding-bottom:5px;
+    color: #F31441;
+}
+#login ol li label{
+    width:120px;
+    float:left;
+    text-align:left;
+    color:black;
+}
+
+label {
+    
+    font-size: 14px;
+    
+}
+
+.veh{
+    
+    color: #F0510D;
+    
+}
+
+input {
+    border: 1px solid #D5D6DB;
+    
+}
+
+input[type="submit"]{
+    
+    border: 1px solid #D5D6DB;
+    border-radius:5px;
+    
+    
+}
+
+#form {
+    background: #12334F;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#FFF;
+    width:450px;
+    position: absolute;
+    margin-left: 350px;
+    margin-top: 70px;
+    
+    left: 247px;
+    top: 346px;
+}
+#form legend{
+    font-weight:bold;
+    font-size:12px;
+}
+#form ol{
+    list-style:none;
+}
+#form ol li{
+    padding-bottom:5px;
+}
+#form ol li label{
+    width:150px;
+    float:left;
+    text-align:left;
+}
+.cajas{
+    width:200px;
+}
+.btn-aceptar{
+    background:url(images/save.png);
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    cursor: pointer;
+    color:#FFF;
+    border:0px;
+    width:85px;
+    height:30px;
+    margin-right: 45px;
+
+}
+.btn-aceptar:hover{
+    background:url(images/hsave.png);
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    color:#0B2338;
+    border:0px;
+    width:85px;
+    height:30px;
+
+}
+
+#error{
+
+    background: #FAA6B1;
+    width: 800px;
+    margin: 0 auto;
+    border-radius:5px;
+
+
+}
+
+#error p{
+    color: black;
+    font-size: small;
+    padding-top: 10px;
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.save{
+    background:url(images/save.png);
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#FFF;
+    border:0px;
+    width:85px;
+    height:30px;
+
+}
+.save:hover{
+    background:url(images/hsave.png);
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#0B2338;
+    border:0px;
+    width:85px;
+    height:30px;
+
+}
+.csesion{
+    background:url(images/btn.png) repeat-x center left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#FFF;
+    border:0px;
+    width:115px;
+    height:40px;
+    border-radius:5px;
+
+}
+.csesion:hover{
+    background:url(images/btn-active.png)repeat-x center left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#12334F;
+    border:0px;
+    width:115px;
+    height:35px;
+    border-radius:5px;
+
+}
+
+/*-------------------TABLAS-----------------------*/
+.tabla{
+    font-family:Arial, Helvetica, sans-serif;
+    text-align:center;
+    margin: 0 auto;
+    padding-top: 100px;
+
+
+}
+.tabla .modo1 {
+    background: url(images/fondo_th.png) repeat-x;
+    color: #FFF;
+    font-size: 12px;
+
+}
+.tabla .modo1 th{
+    border: 1px solid;
+    border-color:#000;
+}
+
+.tabla .modo2 th{
+    border: 1px solid;
+    border-color:#000;
+}
+.tabla .modo2 {
+    background: url(images/fondo_tr01.png) repeat-x;
+    font-size:12px;
+
+}
+
+
+#mapa{
+    
+    
+    
+    
+    height: 400px;
+    border: 1px solid #b2b2b2;
+    
+}

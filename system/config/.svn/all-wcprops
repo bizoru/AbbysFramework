@@ -1,0 +1,13 @@
+END
+settings.dev.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/vtrack/!svn/ver/28/FrameworkBase/system/config/settings.dev.php
+END
+settings.prod.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/vtrack/!svn/ver/28/FrameworkBase/system/config/settings.prod.php
+END

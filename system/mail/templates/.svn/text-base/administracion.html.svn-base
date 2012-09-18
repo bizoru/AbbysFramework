@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>:title</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body style="font-family:Trebuchet MS,Lucida Sans Unicode,Lucida Grande,Lucida Sans;">
+        :header
+        <p>Modulo de Reservas Marinas Puerto Velero</p>
+        <p>
+            Recientemente se ha realizado una reserva los detalles son:
+        <p> Nombre del Cliente: :cliente </p>
+        <p> Nombre del Vendedor: :vendedor </p>
+        
+        <p> Las unidades que han sido reservadas son : </p>
+        
+        <div id="reserva">
+
+            :reserva
+
+        </div>
+        :footer
+    </body>
+</html>
