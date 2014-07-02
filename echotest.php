@@ -7,6 +7,7 @@
  */
 
 echo "this is a echo test \n";
+echo "Hi again :) \n";
 echo $argv[1];
 
 
