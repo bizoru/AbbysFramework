@@ -9,7 +9,7 @@ require_once 'driver.php';
 
 class SQLEngine extends Driver {
 
-   function SQLEngine(){
+   function __construct(){
        
        parent::__construct();
           

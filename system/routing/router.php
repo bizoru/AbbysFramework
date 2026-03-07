@@ -29,36 +29,36 @@ class Router {
 		$location = preg_split('[\\/]', $url, -1, PREG_SPLIT_NO_EMPTY);
 
 		//Create vars included into the URL
-		$route['application'] = $location[0];
-		$route['controller'] = $location[1];
-		$route['method'] = $location[2];
-		$route['var'] = $location[3];
+		$route['application'] = isset($location[0]) ? $location[0] : '';
+		$route['controller'] = isset($location[1]) ? $location[1] : '';
+		$route['method'] = isset($location[2]) ? $location[2] : '';
+		$route['var'] = isset($location[3]) ? $location[3] : '';
 
-		
+
 		if(empty($route['controller'])){
-		
+
 			$route['controller'] = DEFAULT_CONTROLLER;
-		
+
 		}
-		
+
 		if(empty($route['method'])){
 
 			$route['method'] = DEFAULT_METHOD;
 
 		}
-		
+
 
 
 		$this->cleanUri($route);
 
-		
+
 		return $route;
 
 	}
 
 	function curPageURL() {
 		$pageURL = 'http';
-		if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+		if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
 		$pageURL .= "://";
 		if ($_SERVER["SERVER_PORT"] != "80") {
 			$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
@@ -76,7 +76,7 @@ class Router {
 
 		foreach ($uri as $key => $value) {
 			$content = htmlentities($value);
-			$content = mysql_escape_string($content);
+			$content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
 			$uri[$key] = $content;
 
 		}
@@ -84,7 +84,7 @@ class Router {
 	}
 
 	function getCurrentURL(){
-	
+
 		return "http://".$_SERVER["SERVER_NAME"]."/".WORKING_FOLDER;
 	}
 }

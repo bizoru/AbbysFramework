@@ -11,10 +11,9 @@ class MySQLDBConnection implements DBEngine {
 
 		// Fix logon error
 		$result = false;
-		$link = @mysql_connect(DB_HOST,DB_USER,DB_PASSWD);
-		$db = @mysql_select_db(DB_DATABASE,$link);
-		if($link && $db){
-			@mysql_close($link); 
+		$link = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWD, DB_DATABASE);
+		if($link){
+			@mysqli_close($link);
 			$result = true;
 		}
 		return $result;
@@ -22,7 +21,7 @@ class MySQLDBConnection implements DBEngine {
 	}
 
 	/**
-	 * 
+	 *
 	 * Before doing some query check first DB Link
 	 * @param $query
 	 */
@@ -30,52 +29,39 @@ class MySQLDBConnection implements DBEngine {
 
 
 		$collection = array();
-		$link = @mysql_connect(DB_HOST,DB_USER,DB_PASSWD);
+		$link = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWD, DB_DATABASE);
 
-		if(!@mysql_select_db(DB_DATABASE,$link)){
+		if(!$link){
 
 			print "could not find the database";
 
 		}
 
-		
-		
-		$result = @mysql_query($query,$link);
-		
+
+
+		$result = @mysqli_query($link, $query);
+
 		if(!$result){
-		
-			print "Query error ".mysql_error();
-		
+
+			print "Query error ".mysqli_error($link);
+
 		}
 
-		while($row = @mysql_fetch_assoc($result)){
+		while($row = @mysqli_fetch_assoc($result)){
 
 			array_push($collection, $row);
 
 
 		}
-                
-                
 
 
-		mysql_close($link);
-		
-		
+
+		mysqli_close($link);
+
+
 
 		return $collection;
 
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

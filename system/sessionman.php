@@ -6,8 +6,8 @@ class SessionMan {
 
 
         session_start();
-        $result = $_SESSION[$key];
-        
+        $result = isset($_SESSION[$key]) ? $_SESSION[$key] : null;
+
         return $result;
     }
 

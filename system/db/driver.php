@@ -18,7 +18,7 @@ class Driver implements DBEngine{
     
     private $dbengine;
     
-    function Driver(){
+    function __construct(){
         
         if(DB_DRIVER == "PG"){
             

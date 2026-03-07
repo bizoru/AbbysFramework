@@ -18,7 +18,7 @@ class PgDBConnection implements DBEngine{
    
     private $connection_string;
     
-    function PgDBConnection(){
+    function __construct(){
          
          $this->connection_string = "host=localhost dbname=".DB_DATABASE." user=".DB_USER." password=".DB_PASSWD;
         

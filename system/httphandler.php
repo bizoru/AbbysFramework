@@ -6,10 +6,10 @@ class HttpHandler {
 
 	static function post($key){
 
-		$code = $_POST[$key];
+		$code = isset($_POST[$key]) ? $_POST[$key] : '';
 		$code = stripslashes($code);
-		$code = mysql_escape_string($code);
-		
+		$code = htmlspecialchars($code, ENT_QUOTES, 'UTF-8');
+
 
 		return $code;
 
@@ -27,23 +27,23 @@ class HttpHandler {
 		}
 
 	}
-        
+
         static function wipe($param){
             $code = $param;
             $code = stripslashes($code);
-            $code = mysql_escape_string($code);
-            
+            $code = htmlspecialchars($code, ENT_QUOTES, 'UTF-8');
+
             return $code;
-            
-            
+
+
         }
 
 	static function get($key){
 
-		$code = $_GET[$key];
+		$code = isset($_GET[$key]) ? $_GET[$key] : '';
 		$code = stripslashes($code);
-		$code = mysql_escape_string($code);
-                    
+		$code = htmlspecialchars($code, ENT_QUOTES, 'UTF-8');
+
 
 		return $code;
 
@@ -52,7 +52,7 @@ class HttpHandler {
 	static function redirect($application,$controller){
 
 		$url = "http://".$_SERVER['SERVER_NAME']."/".WORKING_FOLDER."$application/$controller";
-		
+
 		header("Location: $url");
 
 	}
@@ -99,7 +99,7 @@ class HttpHandler {
 
 		$code = $var;
 		$code = stripslashes($code);
-		$code = mysql_escape_string($code);
+		$code = htmlspecialchars($code, ENT_QUOTES, 'UTF-8');
 		$code = htmlentities($code);
 
 		return $code;
@@ -113,9 +113,9 @@ class HttpHandler {
 
 		foreach ($properties as $key=>$value){
 
-			$value = HttpHandler::post($key);			
-			$class->{$key} = $value;	
-				
+			$value = HttpHandler::post($key);
+			$class->{$key} = $value;
+
 		}
 
 	}

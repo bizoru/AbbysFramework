@@ -16,17 +16,17 @@ require_once dirname(__FILE__) . '/../mailer.php';
 require_once 'assistant.php';
 
 class unit {
-    
-    function unit(){
-        
+
+    function __construct(){
+
         print md5("admin");
-        
-        
-        
-        
+
+
+
+
     }
-    
-    
+
+
 }
 
 ?>

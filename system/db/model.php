@@ -61,7 +61,7 @@ class Model {
 
 
                     $code = $params[$param];
-                    $code = mysql_escape_string($code);
+                    $code = addslashes($code);
                     
 
                     $statement = str_replace(":".$param, $code, $statement);
