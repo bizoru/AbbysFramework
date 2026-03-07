@@ -39,3 +39,22 @@ require_once __DIR__ . '/../system/db/validator.php';
 require_once __DIR__ . '/../system/db/form.php';
 require_once __DIR__ . '/../system/httphandler.php';
 require_once __DIR__ . '/../system/routing/router.php';
+require_once __DIR__ . '/../system/auth.php';
+require_once __DIR__ . '/../system/sessionman.php';
+require_once __DIR__ . '/../system/db/dbengine.php';
+
+// Load Model class source without triggering the DB dependency chain
+// (sqlengine.php -> driver.php -> dbcon.php requires real mysqli)
+// We load the raw file and the test uses a TestableModel subclass that skips DB init
+if (!class_exists('SQLEngine')) {
+    // Stub SQLEngine so Model can be loaded without a real DB connection
+    class SQLEngine {
+        function __construct() {}
+        function doQuery($query = '') { return []; }
+        function checkDB() { return false; }
+    }
+}
+require_once __DIR__ . '/../system/db/model.php';
+require_once __DIR__ . '/../system/routes.php';
+require_once __DIR__ . '/../system/excel.inc.php';
+require_once __DIR__ . '/../system/filemanager.php';
