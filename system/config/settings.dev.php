@@ -29,19 +29,19 @@
 	define("DB_ERROR_MODULE","errorSQL");
 	define("BASE_FRAMEWORK","Application");
 	define("SITE_DOWN_MODULE","sitedown");
-	define("DB_DATABASE","vtrack");
+	define("DB_DATABASE", getenv('DB_DATABASE') ?: "abbys");
 	define("BASE_PATH", "http://".$_SERVER["SERVER_NAME"]);
-	define("APPLICATION_PATH","application"); 
+	define("APPLICATION_PATH","application");
 	define("MODEL_PATH","application/model/");//no
 	define("VIEW_PATH","application/view/");//no
 	define("VIEW_ERROR_PATH","application/view/error/");//no
 	define("DEFAULT_METHOD","index");
 	define("DEBUG_ON",false);
 	define("AUTH_CONTROLLER","login");
-	define("DB_USER","root");
-	define("DB_HOST","localhost");
-	define("DB_PASSWD","root");
-	define("WORKING_FOLDER","frameworkbase/frameworkbase/");
+	define("DB_USER", getenv('DB_USER') ?: "postgres");
+	define("DB_HOST", getenv('DB_HOST') ?: "localhost");
+	define("DB_PASSWD", getenv('DB_PASSWD') ?: "postgres");
+	define("WORKING_FOLDER","");
 	define("CHECK_DB",true);
 	define("AUTH",true);
         define("HOST_SMTP","");
