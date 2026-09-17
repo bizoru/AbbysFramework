@@ -37,7 +37,7 @@ function js_vendors($vendor,$scriptname){
 // Short method to have links
 function lnk($rt,$description){
     
-    $vars = get_class_vars(Routes);
+    $vars = get_class_vars('Routes');
     
     foreach ($vars as $key => $value) {
         

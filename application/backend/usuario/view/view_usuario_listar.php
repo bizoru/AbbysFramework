@@ -34,7 +34,7 @@
 		<td><?php echo $usuario['apellido']; ?></td>
 		<td><?php echo $usuario['correo']; ?></td>
 		<td><?php echo $usuario['grupo']; ?></td>
-		<td><?php echo $usuario['fecha_creacion']; ?></td>
+		<td><?php echo $usuario['fecha']; ?></td>
 		<td><?php link_to_parameter('backend/usuario/editar','Editar',$usuario['id'])?>
 		<?php link_to_parameter('backend/usuario/eliminar','Eliminar',$usuario['id'])?>
 		

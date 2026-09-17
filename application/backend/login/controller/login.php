@@ -23,7 +23,9 @@ class Login extends Application {
             $this->loadModel('model_usuario');
             $usuario = new model_usuario();
             $usuario->usuario = HttpHandler::post('usuario');
-            $usuario->password = md5(HttpHandler::post('password'));
+            // Raw value on purpose: password_verify() must compare the exact
+            // characters the user typed, not an HTML-escaped copy.
+            $usuario->password = isset($_POST['password']) ? $_POST['password'] : '';
             $result = $usuario->checkUser($usuario);
 
 

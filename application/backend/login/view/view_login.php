@@ -13,7 +13,7 @@
                 <form  method="post" name="loginform">
                     <fieldset id="login">
                         <ol>
-                            <li><?php echo $error ?></li>
+                            <li><?php echo isset($error) ? $error : '' ?></li>
                             <li></li>
                             <li><label>User: </label><input class="cajas" type="text" name="usuario"  /></li>
                             <li><label>Password: </label><input class="cajas" type="password" name="password"  /></li>

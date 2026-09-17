@@ -15,13 +15,19 @@ class Validator {
 
 
 	function checkEmail($field,$params=array()){
-			
 
-		// Check if the email address is properly typed
+		if(!empty($params)){
 
-		return ERROR_MAIL;
-			
-			
+			$a = $params[0];
+
+			if(!empty($a) && !filter_var($a, FILTER_VALIDATE_EMAIL)){
+
+				$this->messages[$field] = ERROR_EMAIL;
+
+			}
+
+		}
+
 	}
 
 	function checkEmpty($field,$params=array()){

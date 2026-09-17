@@ -2,10 +2,17 @@
 
 class SessionMan {
 
+    private static function ensureSessionStarted() {
+
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+    }
+
     static function getSessionValue($key) {
 
 
-        session_start();
+        self::ensureSessionStarted();
         $result = isset($_SESSION[$key]) ? $_SESSION[$key] : null;
 
         return $result;
@@ -13,7 +20,7 @@ class SessionMan {
 
     static function deleteSessionValue($key) {
 
-        session_start();
+        self::ensureSessionStarted();
 
         if (isset($_SESSION[$key])) {
             unset($_SESSION[$key]);
@@ -22,14 +29,16 @@ class SessionMan {
 
     static function setSessionValue($value, $key) {
 
-        session_start();
+        self::ensureSessionStarted();
         $_SESSION[$key] = $value;
     }
 
     static function initSession() {
 
-        session_name(md5('WebID'));
-        session_start();
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_name(md5('WebID'));
+            session_start();
+        }
     }
 
 }

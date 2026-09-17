@@ -63,6 +63,11 @@ class Usuario extends Application {
 
             HttpHandler::mapPost($usuario);
 
+            // Raw values on purpose: hashing/comparing an HTML-escaped copy of
+            // the password would silently change it for users who type <, >, & or quotes.
+            $usuario->contrasena = isset($_POST['contrasena']) ? $_POST['contrasena'] : '';
+            $usuario->contrasenar = isset($_POST['contrasenar']) ? $_POST['contrasenar'] : '';
+
             // Improve this
             $usuario->activo = true;
             $usuario->amarres = 0;
@@ -95,33 +100,12 @@ class Usuario extends Application {
     function eliminar($id) {
 
         $this->loadModel('model_usuario', 'login');
-        $this->loadModel('model_grupo', 'grupo');
-        $this->loadModel('model_reserva', 'reservas');
-        $this->loadModel('model_unidades', 'unidades');
-
-            $modelreservas = new model_reserva();
-            $modelunidades = new model_unidades();
-            
-        $reservas = $modelreservas->getByUsuarioId($id);
-
 
         if (HttpHandler::isPost()) {
 
-        
-            
-
-            if (!empty($reservas)) {
-                
-                $this->loadView('view_usuario_eliminar_fail');
-                
-            }else{
-            
-                $modelo = new model_usuario();
-                $modelo->delete(HttpHandler::post('id'));
-                $this->listar();
-            
-            
-            }
+            $modelo = new model_usuario();
+            $modelo->delete(HttpHandler::post('id'));
+            $this->listar();
         } else {
 
             $modelo = new model_usuario();
@@ -161,7 +145,9 @@ class Usuario extends Application {
             $usuario->nombre = HttpHandler::post('nombre');
             $usuario->apellido = HttpHandler::post('apellido');
             $usuario->correo = HttpHandler::post('correo');
-            $usuario->contrasena = HttpHandler::post('contrasena');
+            // Raw value on purpose: hashing an HTML-escaped copy of the
+            // password would silently change it for users who type <, >, & or quotes.
+            $usuario->contrasena = isset($_POST['contrasena']) ? $_POST['contrasena'] : '';
             $usuario->usuario = HttpHandler::post('usuario');
             $usuario->id = HttpHandler::post('id');
             $usuario->grupo_id = HttpHandler::post('grupo');

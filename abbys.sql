@@ -43,3 +43,9 @@ WITH (
 ALTER TABLE usuario
   OWNER TO postgres;
 
+-- Seed data so the app has something to log in with out of the box.
+-- Default login: admin / admin123 (change it after first login).
+INSERT INTO grupo (nombre) VALUES ('Administradores');
+INSERT INTO usuario (usuario, contrasena, nombre, apellido, correo, fecha, activo, grupo_id)
+VALUES ('admin', '$2y$10$rEWqOzp9NG4HuTbBAlcxbeQJ5HKrBqpPEJXhJ8rLb9182Ac9uHMbO', 'Admin', 'Abby', 'admin@example.com', now(), true, 1);
+

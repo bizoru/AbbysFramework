@@ -1,3 +1,13 @@
+<?php
+$usuario = array_merge(
+    array('id' => '', 'nombre' => '', 'apellido' => '', 'usuario' => '', 'correo' => ''),
+    isset($usuario) ? $usuario : array()
+);
+$error = array_merge(
+    array('nombre' => '', 'apellido' => '', 'usuario' => '', 'contrasena' => '', 'correo' => ''),
+    isset($error) ? $error : array()
+);
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

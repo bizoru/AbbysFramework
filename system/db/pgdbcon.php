@@ -20,7 +20,7 @@ class PgDBConnection implements DBEngine{
     
     function __construct(){
          
-         $this->connection_string = "host=localhost dbname=".DB_DATABASE." user=".DB_USER." password=".DB_PASSWD;
+         $this->connection_string = "host=".DB_HOST." dbname=".DB_DATABASE." user=".DB_USER." password=".DB_PASSWD;
         
     } 
     
@@ -42,19 +42,20 @@ class PgDBConnection implements DBEngine{
        $collection = array();
        $link = pg_connect($this->connection_string);
        $result = pg_query($link,$query);
-       
+
        if(!$result):
-           print "<div id='error'><p>Error with your query!<br>".pg_last_error().'</p></div>';
+           print "<div id='error'><p>Error with your query!<br>".pg_last_error($link).'</p></div>';
+       else:
+           while($row = pg_fetch_assoc($result)):
+
+               array_push($collection, $row);
+
+           endwhile;
+
+           pg_free_result($result);
        endif;
-       
-       while($row = pg_fetch_assoc($result)):
-           
-           array_push($collection, $row);
-           
-       endwhile;
-       
-       pg_free_result($result);
-       pg_close();
+
+       pg_close($link);
        return $collection;
        
    }

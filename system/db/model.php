@@ -3,6 +3,9 @@
 require_once 'sqlengine.php';
 require_once 'form.php';
 
+// Model subclasses (and HttpHandler::mapPost()) routinely set ad-hoc
+// properties straight from POST data, so dynamic properties are expected here.
+#[AllowDynamicProperties]
 class Model {
 
 	/**

@@ -55,7 +55,7 @@ class Application {
             $controller->{$this->method}($this->var);
         } else {
 
-            $this->controller = ERROR;
+            $this->controller = ERROR_CONTROLLER;
             $error = FileManager::loadController($this->controller, $this->application);
             $error->error404();
         }

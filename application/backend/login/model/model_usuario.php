@@ -6,11 +6,11 @@ class model_usuario extends Model {
 	public $id,$usuario,$contrasena,$contrasenar,$nombre,$apellido,$correo,$grupo_id,$activo,$fecha;
 	private $table="usuario";
 	private $checkUser = "select * from usuario where usuario.usuario =':usuario' and usuario.contrasena=':password'";
-	private $checkByUser = 'SELECT * from usuario where usuario=":usuario"';
+	private $checkByUser = "SELECT * from usuario where usuario=':usuario'";
 	private $checkById =  'SELECT * from usuario where id=:id';
 	private $selectAll = 'SELECT * from usuario';
-	private $insertRecord  = 'INSERT INTO usuario values (null,":usuario",":contrasena",":nombre",":apellido",":correo",":fecha",:activo,:grupo_id);';
-	private $updateRecord = 'UPDATE usuario SET nombre=":nombre", contrasena=":contrasena",usuario=":usuario",correo=":correo",grupo_id=:grupo_id where id=:id';
+	private $insertRecord  = "INSERT INTO usuario values (DEFAULT,':usuario',':contrasena',':nombre',':apellido',':correo',':fecha',':activo',:grupo_id);";
+	private $updateRecord = "UPDATE usuario SET nombre=':nombre', contrasena=':contrasena',usuario=':usuario',correo=':correo',grupo_id=:grupo_id where id=:id";
 	private $deleteRecord = "DELETE from usuario where id=:id";
 	
 	
@@ -31,11 +31,16 @@ class model_usuario extends Model {
 
 	function checkUser($usuario){
 
-		$params = array("usuario"=>$usuario->usuario,"password"=>$usuario->password);
-		$query = $this->prepareStatement($this->checkUser, $params);
-                
+		$params = array("usuario"=>$usuario->usuario);
+		$query = $this->prepareStatement($this->checkByUser, $params);
+
 		$result = $this->getSQLEngine()->doQuery($query);
-		return $result;
+
+		if(!empty($result) && password_verify($usuario->password, $result[0]['contrasena'])){
+			return $result;
+		}
+
+		return array();
 	}
 
 	function insert($usuario){
@@ -43,7 +48,7 @@ class model_usuario extends Model {
 		$fecha = date('Y-m-d H:i:s');
 
 
-		$params = array("fecha"=>$fecha,"usuario"=>$usuario->usuario,"contrasena"=>md5($usuario->contrasena),"nombre"=>$usuario->nombre,"apellido"=>$usuario->apellido,"correo"=>$usuario->correo,"activo"=>$usuario->activo,"grupo_id"=>$usuario->grupo_id);
+		$params = array("fecha"=>$fecha,"usuario"=>$usuario->usuario,"contrasena"=>password_hash($usuario->contrasena, PASSWORD_DEFAULT),"nombre"=>$usuario->nombre,"apellido"=>$usuario->apellido,"correo"=>$usuario->correo,"activo"=>$usuario->activo,"grupo_id"=>$usuario->grupo_id);
 
 		$query = $this->prepareStatement($this->insertRecord, $params);
 
@@ -68,7 +73,7 @@ class model_usuario extends Model {
 	
 	function updateUser($usuario){
 	
-		$params = array("id"=>$usuario->id,"usuario"=>$usuario->usuario,"contrasena"=>md5($usuario->contrasena),"nombre"=>$usuario->nombre,"apellido"=>$usuario->apellido,"correo"=>$usuario->correo,"grupo_id"=>$usuario->grupo_id);
+		$params = array("id"=>$usuario->id,"usuario"=>$usuario->usuario,"contrasena"=>password_hash($usuario->contrasena, PASSWORD_DEFAULT),"nombre"=>$usuario->nombre,"apellido"=>$usuario->apellido,"correo"=>$usuario->correo,"grupo_id"=>$usuario->grupo_id);
 		$query = $this->prepareStatement($this->updateRecord, $params);
 		$this->getSQLEngine()->doQuery($query);
 		
