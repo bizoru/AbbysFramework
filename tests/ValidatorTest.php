@@ -86,4 +86,26 @@ class ValidatorTest extends TestCase
         $this->assertArrayHasKey('email', $this->validator->messages);
         $this->assertEquals(EMPTY_EMAIL, $this->validator->messages['email']);
     }
+
+    public function testCheckEmailWithValidAddressDoesNotAddMessage(): void
+    {
+        $this->validator->checkEmail('email', ['someone@example.com']);
+
+        $this->assertEmpty($this->validator->messages);
+    }
+
+    public function testCheckEmailWithInvalidAddressAddsMessage(): void
+    {
+        $this->validator->checkEmail('email', ['not-an-email']);
+
+        $this->assertArrayHasKey('email', $this->validator->messages);
+        $this->assertEquals(ERROR_EMAIL, $this->validator->messages['email']);
+    }
+
+    public function testCheckEmailWithEmptyValueDoesNotAddMessage(): void
+    {
+        $this->validator->checkEmail('email', ['']);
+
+        $this->assertEmpty($this->validator->messages);
+    }
 }

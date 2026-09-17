@@ -8,5 +8,8 @@
         "classmap": [
             "system/"
         ]
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
