@@ -1,14 +1,18 @@
-# Abby's Framework
+# 🧱 Abby's Framework
+
+**A small PHP MVC framework from 2012, modernized to run cleanly on PHP 8.**
+
+Front-controller routing, models, sessions and form validation — no framework
+magic to fight, just the moving parts you'd build yourself. Not a
+production-hardened toolkit (see [Known limitations](#known-limitations)).
+
+[![license](https://img.shields.io/badge/license-MIT-2ea44f?style=flat&labelColor=24292e)](LICENSE)
+[![php](https://img.shields.io/badge/php-%3E%3D8.2-8892BF?style=flat&labelColor=24292e)](composer.json)
+[![database](https://img.shields.io/badge/database-PostgreSQL-336791?style=flat&labelColor=24292e)](abbys.sql)
+[![deploy](https://img.shields.io/badge/deploy-Docker%20Compose-2496ED?style=flat&labelColor=24292e)](docker-compose.yml)
 
 [![CI](https://github.com/bizoru/AbbysFramework/actions/workflows/ci.yml/badge.svg)](https://github.com/bizoru/AbbysFramework/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/bizoru/AbbysFramework/graph/badge.svg)](https://codecov.io/gh/bizoru/AbbysFramework)
-[![PHP Version](https://img.shields.io/badge/php-%3E%3D8.2-777BB4?logo=php&logoColor=white)](composer.json)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-A small, from-scratch PHP MVC framework originally built in 2012, modernized to
-run cleanly on PHP 8. It's a good place to see how routing, models, sessions,
-and form validation work without a big framework in the way — not a
-production-hardened toolkit (see [Known limitations](#known-limitations)).
 
 ## Features
 
